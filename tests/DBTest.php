@@ -2,15 +2,15 @@
 
 namespace AnchorManagerPHP\Test;
 
-require_once dirname(dirname(__FILE__)) . "/config.php";
+require_once dirname(dirname(__FILE__)) . "/src/config.php";
 
 
 class DBTest extends \PHPUnit_Framework_TestCase
 {
 	public function testDatabaseConnection()
 	{
-		$mysqli_conn = new \mysqli($db_config["host"], $db_config["user"], $db_config["password"], $db_config["database"]);
+		$mysqli_conn = new \mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
 
-		$this->assert($mysqli_conn->connect_errno == false);
+		$this->assertTrue($mysqli_conn->connect_errno == false);
 	}
 }

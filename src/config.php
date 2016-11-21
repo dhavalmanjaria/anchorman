@@ -14,7 +14,7 @@ define("ROOT_DIR", __DIR__);
 // Database definitions
 define("DB_USER", "root");
 define("DB_PASSWORD", "dhaval");
-define("DB_DATABASE", "anchromandb");
+define("DB_DATABASE", "anchormandb");
 define("DB_HOST", "localhost");
 
 
