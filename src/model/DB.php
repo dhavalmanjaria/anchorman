@@ -22,7 +22,7 @@ class DB {
 			error_log("Database connection failed: " . self::$connection->error);	
 		}
 		
-		return $connection;
+		return self::$connection;
 	}
 	
 	/**
@@ -64,7 +64,7 @@ class DB {
 	 */
 	public function quote($value) {
 		$connetcion = $this->connect();
-		return "'" . $connection->real_escape_string($value) . "'";
+		return "'" . self::$connection->real_escape_string($value) . "'";
 	}
 }
 ?>

@@ -13,4 +13,10 @@ class DBTest extends \PHPUnit_Framework_TestCase
 
 		$this->assertTrue($mysqli_conn->connect_errno == false);
 	}
+	
+	public function testConnectionFromFunction() {
+		$db = new \DB();
+		$conn = $db->connect();
+		$this->assertTrue($conn->connect_errno == false);
+	}
 }

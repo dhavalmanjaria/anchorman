@@ -14,7 +14,7 @@ define("ROOT_DIR", __DIR__);
 // Database definitions
 define("DB_USER", "root");
 define("DB_PASSWORD", "dhaval");
-define("DB_DATABASE", "anchormandb");
+define("DB_DATABASE", "anchormandbtest");
 define("DB_HOST", "localhost");
 
 
@@ -31,7 +31,7 @@ spl_autoload_register(function($classname) {
 	foreach($fileIterator as $file) {
 		if(strtolower($file->getFilename()) == strtolower($filename)) {
 			if($file->isReadable()) {
-				include $file->getPathname();
+				require $file->getPathname();
 			}
 		}
 		//break;
