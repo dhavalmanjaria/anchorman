@@ -4,9 +4,9 @@ $(function() {
 		var buttonAndDataHTML = '';
 		buttonAndDataHTML += '<input type="submit" class="btn btn-primary" value="Save" />';
 		buttonAndDataHTML += '<input type="button" name="' + event.data.form.attr('id') + 'rst" class="btn btn-danger" value="Reset">';
-		 buttonAndDataHTML += '<input type="hidden" name="id" value=' +$("#actId").text() +' >';
+		buttonAndDataHTML += '<input type="hidden" name="id" value=' +$("#actId").text() +' >';
 
-		 return buttonAndDataHTML;
+		return buttonAndDataHTML;
 	}
 
 	function submitFunction(event) {
@@ -22,7 +22,7 @@ $(function() {
 
 		$.ajax(
 			{
-				url: './controller/saveAct.php',
+				url: './controller/ActController.php',
 				type: "POST",
 				data: postData,
 				success: function(response) {
@@ -80,6 +80,9 @@ $(function() {
 
 			form.addClass('custom-form-1');
 			form.css('display', 'block');
+
+			$('form :input[name="'+ event.data.field + 'Text"]').text($(textbox).text());
+			textbox.css('display', 'none');
 
 			form.submit({form: event.data.form, textbox: event.data.textbox}, submitFunction);
 

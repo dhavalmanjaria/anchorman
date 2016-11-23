@@ -43,10 +43,23 @@ class Act {
 		return $act;
 	}
 
-	// Stores a specific value, in a specific column for a specific id. Does not work on actOrderingNo though
-	public function storeColumnById($column_name, $value, $id) {
+	// Gets a specific act according to the ID
+	public static function getActById($actId) {
 		global $db;
-		$query = "UPDATE `actTable` SET $column_name = " . $db->quote($value) ." WHERE $actId = $id";
+		$query = "SELECT * FROM `actTable` WHERE `actId` = $actId";
+		$res = $db->query($query);
+		$row = $res->fetch_assoc();
+		$act = new Act($row['actId'], $row['actOrderingNo'], $row['actName'], $row['intro'], $row['outro']);
+
+		return $act;
+	}
+
+
+	// Stores a specific value, in a specific column for a specific id. Does not work on actOrderingNo though
+	public function storeColumnById($column_name, $value, 
+										$id) {
+		global $db;
+		$query = "UPDATE `actTable` SET $column_name = " . $db->quote($value) ." WHERE `actId` = $id";
 
 		return $db->query($query);	
 	}

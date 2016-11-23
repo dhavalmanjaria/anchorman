@@ -18,6 +18,14 @@ class ActTest extends \PHPUnit_Framework_TestCase {
 		$id = $act->insertAct(-1, 'test', 'test', 'test');
 		$this->assertTrue(!is_null($id));		
 	}
+
+	public function testStoreColumnById() {
+		$act = new \Act();
+		$id = 1;
+		$this->assertTrue(
+			$act->storeColumnById('actName',
+				'testdata',$id));
+	}
 	
 }
 

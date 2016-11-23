@@ -37,7 +37,7 @@ $actList = $act->getAllAsArray();
 <div class="container">
 	<ul id="sortable" class="list-group">
 		<?php foreach($actList as $act) {?>
-			<li class="list-group-item text-info panel clearfix" id="idorder_<?=$act->actId;?>"
+			<li class="list-group-item text-info panel clearfix" id="idorder_<?=$act->actId;?>">
 				<!-- act ID is shown only temporarily -->
 				<span class="text-info pull-left"><?=$act->actId ?></span>
 					<button class="btn btn-info pull-right" data-toggle="collapse" data-target="#act-options-navbar<?=$act->actId;?>" >
@@ -51,7 +51,7 @@ $actList = $act->getAllAsArray();
 					<a href="controller/ListController.php?newActPos=<?=$act->actOrderingNo ;?>" class="btn btn-primary">
 						<small>Add</small>
 					</a>
-					<a href="controller/ListController.php?delActPos=<?=$act->actOrderingNo;?>&delActId=<?=$act->actId?>" class="btn btn-danger"
+					<a href="controller/ListController.php?delActPos=<?=$act->actOrderingNo;?>&delActId=<?=$act->actId?>" class="btn btn-danger">
 						<small>Del</small>
 					</a>
 				</div>
